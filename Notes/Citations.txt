@@ -1,0 +1,17 @@
+Used Google Gemini Mon Jan 19th:
+-To look at using GridView instead of ListView for formatting emoji buttons.
+-Used to get formatting attributes set for constraint and linear layouts
+
+-Used to break down what classes and methods might be useful for data storage and navigation.
+
+-Explain the lambda expressions for on click listeners
+
+-Creating and using Emoji Event class
+
+-Learning about and using Intents
+
+--used to help refactor when converting to fragments from activities
+
+--How to use snackbar as an alternative to toast, so I can change it
+
+--How to turn maps into ArrayLists
