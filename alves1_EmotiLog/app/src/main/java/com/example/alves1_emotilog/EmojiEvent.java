@@ -2,6 +2,19 @@ package com.example.alves1_emotilog;
 
 import java.util.Date;
 
+/**
+ * Purpose:
+ * This class acts as a data model to hold all the information related to one specific
+ * log entry, including the emoji, its emotion's name, and the timestamp it was
+ * logged.
+ *
+ * Design Rationale:
+ * - Encapsulates event data into an object, making it easy to use in different functionalities
+ * throughout the app.
+ * - Uses the emotionMap from MainActivity to fetch emotion names, always accurate.
+ *
+ * Outstanding Issues: None.
+ */
 public class EmojiEvent {
     private String emotion;
     private Date timestamp;

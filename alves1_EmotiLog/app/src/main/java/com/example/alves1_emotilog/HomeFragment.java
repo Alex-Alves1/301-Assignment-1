@@ -23,6 +23,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * Purpose:
+ * - Displays a grid of preset emojis for the user to select for logging emotions.
+ * - Listens for user clicks on any of the emojis on the list and then records it as
+ *  an EmojiEvent to the central EmojiLog as well as increments the session count for that emoji.
+ * - Implements a snackbar to notify the user as each event is logged.
+ *
+ * Design Rationale:
+ * - Uses a GridView to display the emojis, which allows for a scalable layout, so that more emojis
+ *      could be added easily without disrupting functionality.
+ * - Uses data sources from MainActivity like all other Classes to maintain properly organized shared
+ *  data.
+ *
+ * Outstanding Issues: None.
+ */
 public class HomeFragment extends Fragment {
     private GridView emojiGrid;
     private ArrayAdapter<String> emojiAdapter;
@@ -59,11 +74,11 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // Get emoji and emoji name
+                //Get emoji and emoji name
                 String selectedEmoji = emojiList.get(position);
                 String emotionName = MainActivity.emotionMap.get(selectedEmoji);
 
-                // update count of that emoji
+                //update count of that emoji
                 Integer count = MainActivity.countMap.get(selectedEmoji);
                 if (count != null) MainActivity.countMap.put(selectedEmoji, count + 1);
                 else MainActivity.countMap.put(selectedEmoji, 1);

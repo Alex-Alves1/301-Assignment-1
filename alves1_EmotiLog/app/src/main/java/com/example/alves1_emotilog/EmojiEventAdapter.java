@@ -12,6 +12,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * Purpose:
+ * - Custom ArrayAdapter for displaying individual EmojiEvent objects in the LogFragment's ListView.
+ * - Populates the views within each row (emoji, name, and timestamp) with the
+ *   data from the corresponding EmojiEvent.
+ *
+ * Design Rationale:
+ * - Needed to create a custom adapter so the information for each event could be displayed in a
+ *   organized and functional way.
+ *
+ * Outstanding Issues: None.
+ */
 
 //This class was adapted to fit a new adapter type from an original Google Gemini response on Sat Jan 24,
 //"How do I start setting up a custom adapter for my emoji events to fill in the elements of the log events"

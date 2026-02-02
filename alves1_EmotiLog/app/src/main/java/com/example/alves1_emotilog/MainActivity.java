@@ -13,7 +13,36 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ General use of Google Gemini throughout assignment for learning purposes
+(Not direct functionality additions, but general conversational querying):
+-Used to look into using GridView instead of ListView for formatting emoji buttons.
+-Used to get useful formatting attributes for constraint and linear layouts
+-Used to break down what classes and methods might be useful for data storage and navigation.
+-Explaining the lambda expressions for on click listeners
+-Learning about and using Intents
+-Used to help refactor when converting to fragments from activities
+-How to use snackbar as an alternative to toast, so I can customize it more
+-How to turn maps into ArrayLists
+ */
 
+/**
+ * Purpose:
+ * This class acts as the main container for the user interface and defines things like the
+ * bottom navigation bar and the fragment container that holds all other menu fragments.
+ * This class also holds maps like the emoji map and count map that other functions use as the
+ * ground truth for shared and updated data.
+ *
+ * Design Rationale:
+ * - This Class uses a single activity architecture, with different fragments for
+ *   each app functionality. This allows for the constant bottom navigation bar and transitions
+ *   between fragments without reloading the main components.
+ * - It centralizes all the shared data, this helps with organization as this class
+ *   is the source for any non class specific functionality.
+ *
+ *
+ * Outstanding Issues: None.
+ */
 public class MainActivity extends AppCompatActivity {
     private Button summaryButton;
     private Button logButton;
@@ -60,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
         countMap.put("🤒", 0);
         countMap.put("😰", 0);
 
+        //Defining buttons
         logButton = findViewById(R.id.log_button);
         summaryButton = findViewById(R.id.summary_button);
         homeButton = findViewById(R.id.home_button);
 
 
         homeButton.setOnClickListener(v -> {
-            // Later, you will start the homeActivity here
             updateButtons(homeButton);
 
             getSupportFragmentManager().beginTransaction()
@@ -75,8 +104,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         summaryButton.setOnClickListener(v -> {
-            // Later, you will start the SummaryActivity here
-            //Toast.makeText(MainActivity.this, "Summary screen coming soon!", Toast.LENGTH_SHORT).show();
             updateButtons(summaryButton);
 
             getSupportFragmentManager().beginTransaction()
@@ -86,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         logButton.setOnClickListener(v -> {
-            // Later, you will start the LogActivity here
-            //Toast.makeText(MainActivity.this, "Log screen coming soon!", Toast.LENGTH_SHORT).show();
             updateButtons(logButton);
 
             getSupportFragmentManager().beginTransaction()
@@ -101,11 +126,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Updates the button that associated with the menu you have entered to be gray,
-    //All other buttons are reset to the inactive blue
+    //Updates the button that associated with the menu you have entered to be the active colour,
+    //All other buttons are reset to the inactive colour
     private void updateButtons(Button button) {
-        Integer activeButtonColor = Color.DKGRAY;
-        Integer inactiveButtonColor = Color.parseColor("#8FE3EB");
+        Integer activeButtonColor = Color.parseColor("#8FE3EB");
+        Integer inactiveButtonColor = Color.DKGRAY;
 
         homeButton.setBackgroundColor(inactiveButtonColor);
         summaryButton.setBackgroundColor(inactiveButtonColor);

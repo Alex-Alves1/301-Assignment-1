@@ -15,7 +15,18 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
-
+/**
+ * Purpose:
+ * - Custom ArrayAdapter for displaying the count information for each emotion
+ *  in the SummaryFragment's ListView.
+ * - Populates the views within each row with the data for the corresponding emotion.
+ *
+ * Design Rationale:
+ * - Needed to create a custom adapter so the count information for each emotion could be displayed
+ *  in an organized and functional way.
+ *
+ * Outstanding Issues: None.
+ */
 //This class was taken/adapted from a Google Gemini response on Sat Jan 24,
 //"How do I start setting up a custom adapter for my emoji events to fill in the elements of the log events"
 public class EmojiSummaryAdapter extends ArrayAdapter<Map.Entry<String, Integer>> {
@@ -53,6 +64,15 @@ public class EmojiSummaryAdapter extends ArrayAdapter<Map.Entry<String, Integer>
 
         // Return the completed view to render on screen
         return convertView;
+    }
+/*
+The following function was from a Google Gemini response on Sun Feb 2nd 2026:
+"is there a way that I could make it so the summary page allows you to sort by day, based on count timestamps?"
+ */
+    public void updateData(ArrayList<Map.Entry<String, Integer>> newList) {
+        clear();
+        addAll(newList);
+        notifyDataSetChanged();
     }
 }
     

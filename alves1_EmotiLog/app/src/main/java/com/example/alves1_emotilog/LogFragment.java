@@ -13,6 +13,23 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ *
+ * Purpose:
+ * - Fetches the complete list of EmojiEvent objects from the central log in MainActivity.
+ * - Displays each event in a scrollable list, with the most recent events at the top.
+ * - Displays a message if no events have been logged yet.
+ *
+ * Design Rationale:
+ * - Uses a ListView with a custom adapter (EmojiEventAdapter) to render each log entry in order
+ *  to have full customization
+ * - Creates a reversed copy of the event list for display, instead of modifying the
+ *   original data source for proper data integrity.
+ * - Uses the no events logged message so it doesnt look completely empty and for better
+ *  user experience.
+ *
+ * Outstanding Issues: None.
+ */
 public class LogFragment extends Fragment {
     private ListView logListView;
     private TextView emptyLogTextView;
